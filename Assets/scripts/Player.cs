@@ -8,15 +8,20 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     Animator animController;
     float horizontal_value;
+    float jumpForce = 10f;
     Vector2 ref_velocity = Vector2.zero;
-
-    float jumpForce = 12f;
 
     [SerializeField] float moveSpeed_horizontal = 400.0f;
     [SerializeField] bool is_jumping = false;
     [SerializeField] bool can_jump = false;
-    [Range(0, 1)][SerializeField] float smooth_time = 0.5f;
+    [Range(0, 1)][SerializeField] float smooth_time = 1f;
 
+
+
+    [SerializeField] bool IsGrounded = false;
+    [SerializeField] int CountJump = 2;
+    private int LastPressedJumpTime = 0;
+    private int LastOnGroundTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,36 +37,63 @@ public class Player : MonoBehaviour
     {
         horizontal_value = Input.GetAxis("Horizontal");
 
-        if(horizontal_value > 0) sr.flipX = false;
+        if (horizontal_value > 0) sr.flipX = false;
         else if (horizontal_value < 0) sr.flipX = true;
-        
+
         animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
-   
-        if (Input.GetButtonDown("Jump") && can_jump)
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && CountJump > 0)
         {
-            is_jumping = true;
-            animController.SetBool("Jumping", true);
+            Jump();
+
         }
     }
+
+
+    void Jump()
+    {
+    
+        LastPressedJumpTime = 0;
+        LastOnGroundTime = 0;
+        CountJump -= 1;
+
+        float force = jumpForce;
+        if (rb.velocity.y < 0)
+            force -= rb.velocity.y;
+
+
+        rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+
+    }
+
+
     void FixedUpdate()
     {
-        if (is_jumping && can_jump)
-        {           
-            is_jumping = false;
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            can_jump = false;
-        }
+
         Vector2 target_velocity = new Vector2(horizontal_value * moveSpeed_horizontal * Time.fixedDeltaTime, rb.velocity.y);
         rb.velocity = Vector2.SmoothDamp(rb.velocity, target_velocity, ref ref_velocity, 0.05f);
-        
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        can_jump = true;
+
         animController.SetBool("Jumping", false);
+
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
-    {   
-        animController.SetBool("Jumping", false);        
+    {
+        animController.SetBool("Jumping", false);
+        IsGrounded = true;
+        CountJump = 2;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        animController.SetBool("Jumping", true);
+        IsGrounded = false;
+    }
+
+
 }

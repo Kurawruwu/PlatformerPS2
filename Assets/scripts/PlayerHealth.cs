@@ -13,6 +13,18 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] GameObject hitboxDMG;
 
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("il y a plus d'une instance PlayerHealth dans la scene");
+            return;
+        }
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +43,20 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void HealPlayer (int amount) 
+    {
+        if ((currentHealth + amount) > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += amount;
+        }
+
+       
+        healthBar.SetHealth(currentHealth);
+    }
     public void TakeDamage (int damage)
     {
         if(!isInvincible)

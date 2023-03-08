@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+    [SerializeField] GameObject playerRef;
     public float speed;
     public Transform[] waypoints;
     private Transform target;
     private int destPoint=0;
+    bool onPlatform = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,18 @@ public class MovingPlatform : MonoBehaviour
             destPoint = (destPoint + 1) % waypoints.Length;
             target = waypoints[destPoint];
         }
+        if (onPlatform)
+        {
+            playerRef.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.SetParent(this.transform);
+            // collision.transform.SetParent(this.transform);
+            onPlatform = true;
         }
     }
 
@@ -38,7 +45,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            // collision.transform.SetParent(null);
+            onPlatform = false;
         }
     }
 }

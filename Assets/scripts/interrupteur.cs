@@ -6,7 +6,7 @@ public class interrupteur : MonoBehaviour
 {
     [SerializeField] bool isOn = false;
     bool inZone = false;
-
+    [SerializeField] GameObject platform;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,12 @@ public class interrupteur : MonoBehaviour
         {
             isOn = !isOn;
             Debug.Log(isOn);
+            platform.SetActive(true);
+
+            if(isOn == false)
+            {
+                platform.SetActive(false);
+            }
         }
     }
 

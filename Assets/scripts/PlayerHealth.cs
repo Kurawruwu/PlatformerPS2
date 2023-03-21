@@ -63,12 +63,27 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth -= damage;  // si on prends des degats ont retire de la vie a la vie actuelle
             healthBar.SetHealth(currentHealth); // pour mettre a jour le visuel de la barre de vie
+            if (currentHealth <= 0)
+            {
+                Die();
+                return;
+            }
+
             isInvincible = true;
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
 
 
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("mort");
+        Player.instance.enabled = false;
+        // ajouter pour animation mort du perso
+        Player.instance.rb.bodyType = RigidbodyType2D.Kinematic;
+        Player.instance.playerCollider.enabled = false;
     }
 
     public IEnumerator InvincibilityFlash()

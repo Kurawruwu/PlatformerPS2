@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
+    public CapsuleCollider2D playerCollider;
     SpriteRenderer sr;
     Animator animController;
     float horizontal_value;
@@ -22,6 +23,19 @@ public class Player : MonoBehaviour
     [SerializeField] int CountJump = 2;
     private int LastPressedJumpTime = 0;
     private int LastOnGroundTime = 0;
+
+
+    public static Player instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("il y a plus d'une instance Player dans la scene");
+            return;
+        }
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

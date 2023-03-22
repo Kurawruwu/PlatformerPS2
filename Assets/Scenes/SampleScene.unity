@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 415013758}
   - component: {fileID: 415013760}
   - component: {fileID: 415013759}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 607769361}
   - component: {fileID: 607769360}
   - component: {fileID: 607769365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: slimer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2942,7 +2942,7 @@ GameObject:
   - component: {fileID: 1315349608}
   - component: {fileID: 1315349607}
   - component: {fileID: 1315349609}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3187,7 +3187,7 @@ GameObject:
   - component: {fileID: 1568088703}
   - component: {fileID: 1568088705}
   - component: {fileID: 1568088704}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3391,7 +3391,7 @@ GameObject:
   - component: {fileID: 1928830859}
   - component: {fileID: 1928830858}
   - component: {fileID: 1928830857}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

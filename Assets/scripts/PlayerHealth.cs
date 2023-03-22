@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         // test pour voir si ca fonctionne
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(20);
+            TakeDamage(30);
         }
     }
 
@@ -82,6 +82,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("mort");
         Player.instance.enabled = false;
         // ajouter pour animation mort du perso
+        gameObject.layer = 6;
         Player.instance.rb.bodyType = RigidbodyType2D.Kinematic;
         Player.instance.playerCollider.enabled = false;
     }

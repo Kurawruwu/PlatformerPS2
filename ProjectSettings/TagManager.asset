@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - hitboxDMG
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

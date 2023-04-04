@@ -99,13 +99,13 @@ public class PlayerHealth : MonoBehaviour
 
             hitboxDMG.SetActive(true);
         }
-        Debug.Log("Coroutine1");
+      //  Debug.Log("Coroutine1");
     }
 
     public IEnumerator HandleInvincibilityDelay()
     {
         yield return new WaitForSeconds(1.5f);
         isInvincible = false;
-        Debug.Log("Coroutine2");
+      //  Debug.Log("Coroutine2");
     }
 }

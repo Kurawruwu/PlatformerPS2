@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage; 
         healthBar.SetHealth(currentHealth);
+        StartCoroutine(ShowBar());
     }
 
     private void OnTriggerEnter2D(Collider2D Player)
@@ -38,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
         if(Player.transform.name == "Player")
         {
             TakeDamage(25);
-            StartCoroutine(ShowBar());
+            
            
         }
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hitboxDMG
   - PlayerSpawn
+  - Plateform
   layers:
   - Default
   - TransparentFX

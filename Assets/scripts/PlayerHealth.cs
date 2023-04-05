@@ -80,11 +80,11 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         Debug.Log("mort");
-        Player.instance.enabled = false;
+        PlayerMovement.instance.enabled = false;
         // ajouter pour animation mort du perso
         gameObject.layer = 6;
-        Player.instance.rb.bodyType = RigidbodyType2D.Kinematic;
-        Player.instance.playerCollider.enabled = false;
+        PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;
+        PlayerMovement.instance.playerCollider.enabled = false;
     }
 
     public IEnumerator InvincibilityFlash()

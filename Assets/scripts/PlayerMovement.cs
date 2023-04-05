@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool canJump;
     int countJump;
-    float jumpForce = 12f;
+    float jumpForce = 10f;
 
     public static PlayerMovement instance;
 

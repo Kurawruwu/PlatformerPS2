@@ -7,6 +7,8 @@ public class CaillouxManager : MonoBehaviour
     [SerializeField] GameObject Cailloux;
     [SerializeField] Transform[] Waypoints;
     private float timer;
+    
+    
     int i=0;
     // Start is called before the first frame update
     void Start()
@@ -17,8 +19,8 @@ public class CaillouxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
+       
         timer += Time.deltaTime;
         if (timer >1.25f)
         {
@@ -31,10 +33,17 @@ public class CaillouxManager : MonoBehaviour
                 i = 0;
             }
             else i++;
-            Debug.Log(i);
+            
+
+           
+            // Debug.Log(i);
+
         }
+      
+
     }
 
+   
     void ChuteCailloux(int index)
     {
         Instantiate(Cailloux, Waypoints[index].position, Quaternion.identity);

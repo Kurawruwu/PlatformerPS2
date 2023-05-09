@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f47450c01005044ba9175545bc657d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
   speed: 2
   waypoints:
   - {fileID: 852029072}
@@ -1633,6 +1634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f47450c01005044ba9175545bc657d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
   speed: 2
   waypoints:
   - {fileID: 1728202304}

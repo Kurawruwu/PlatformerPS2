@@ -25,7 +25,7 @@ public class degatboite : MonoBehaviour
             timerDamage += Time.deltaTime;
             if(timerDamage >= timeBetweenDamage)
             {
-                playerHealth.TakeDamage(5);
+                playerHealth.TakeDamage(20);
                 timerDamage = 0;
             }
         }

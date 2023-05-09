@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyPatrol1 : MonoBehaviour
 {
+    
+    [SerializeField] SpriteRenderer sr;
+    float horizontal_value;
     public float speed;
     public Transform[] waypoints;
     private Transform target;
@@ -17,6 +20,8 @@ public class EnemyPatrol1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
@@ -24,6 +29,7 @@ public class EnemyPatrol1 : MonoBehaviour
         {
             destPoint = (destPoint + 1) % waypoints.Length;
             target = waypoints[destPoint];
+            sr.flipX = !sr.flipX;
         }
     }
 }

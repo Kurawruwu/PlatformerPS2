@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizontalValue > 0) sr.flipX = false;
         else if (horizontalValue < 0) sr.flipX = true;
+        animController.SetFloat("Speed", Mathf.Abs(horizontalValue));
+
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump && countJump > 0)
         {

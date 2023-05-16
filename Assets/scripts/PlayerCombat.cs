@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
+    Animator animController;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
-
+    
+    void Start()
+    {
+        animController = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -18,10 +23,11 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-
+                animController.SetBool("Fight", true);
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+            else animController.SetBool("Fight", false);
         }
         
     }
@@ -37,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("hit" + enemy.name);
-            enemy.GetComponent<EnemyHealth>().TakeDamage(50);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(15);
 
         }
     }

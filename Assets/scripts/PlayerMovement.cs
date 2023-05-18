@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] bool facingRight;
     public Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animController;
@@ -41,8 +42,9 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalValue = Input.GetAxis("Horizontal");
 
-        if (horizontalValue > 0) sr.flipX = false;
-        else if (horizontalValue < 0) sr.flipX = true;
+        // if (horizontalValue > 0) sr.flipX = false;
+        // else if (horizontalValue < 0) sr.flipX = true;
+        FlipCharacter();
         animController.SetFloat("Speed", Mathf.Abs(horizontalValue));
 
 
@@ -84,6 +86,15 @@ public class PlayerMovement : MonoBehaviour
         countJump -= 1;
         rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
+    }
+
+    void FlipCharacter()
+    {
+        if((horizontalValue < 0 && facingRight) || (horizontalValue > 0 && !facingRight))
+        {
+            facingRight = !facingRight;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
 
     

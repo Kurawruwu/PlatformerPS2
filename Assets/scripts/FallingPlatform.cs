@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    float fallDelay = 1f;
+    float fallDelay = 0.3f;
     float destroyDelay = 2f;
-    float spawnDelay = 3f;
+    float spawnDelay = 1.5f;
     SpriteRenderer sr;
     BoxCollider2D box;
     [SerializeField] Rigidbody2D rb;

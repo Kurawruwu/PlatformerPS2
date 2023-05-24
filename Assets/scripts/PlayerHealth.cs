@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public bool isInvincible = false;
     public SpriteRenderer graphics;
     public float invincibilityFlashDelay = 0.2f;
-
+    Transform playerSpawn;
     public BarreDeVie healthBar;
 
     [SerializeField] GameObject hitboxDMG;
@@ -17,12 +17,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance != null)
         {
             Debug.LogWarning("il y a plus d'une instance PlayerHealth dans la scene");
             return;
         }
         instance = this;
+        playerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+
     }
 
     // Start is called before the first frame update
@@ -66,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Die();
-                return;
+               return;
             }
 
             isInvincible = true;
@@ -85,6 +88,18 @@ public class PlayerHealth : MonoBehaviour
         gameObject.layer = 6;
         PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;
         PlayerMovement.instance.playerCollider.enabled = false;
+        transform.position = playerSpawn.position;
+        // Retour ? la vie
+        currentHealth = 100;
+        healthBar.SetHealth(currentHealth);
+        gameObject.layer = 3;
+        PlayerMovement.instance.enabled = true;
+        PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Dynamic;
+        PlayerMovement.instance.playerCollider.enabled = true;
+    }
+    public void Revive()
+    {
+
     }
 
     public IEnumerator InvincibilityFlash()

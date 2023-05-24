@@ -21,20 +21,20 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fight"))
             {
-                animController.SetBool("Fight", true);
+               animController.SetBool("Fight", true);
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
-            else animController.SetBool("Fight", false);
+           else animController.SetBool("Fight", false);
         }
         
     }
 
     void Attack()
     {
-        // rajouter animation
+        
 
         // Detection des ennemis dans la range de l attaque
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);

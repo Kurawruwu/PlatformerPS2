@@ -17,7 +17,7 @@ public class interrupteur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && inZone)
+        if(Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Action") && inZone)
         {
             isOn = !isOn;
             Debug.Log(isOn);

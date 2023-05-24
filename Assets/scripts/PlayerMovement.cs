@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("il y a plus d'une instance Player dans la scene");
+            //Debug.LogWarning("il y a plus d'une instance Player dans la scene");
             return;
         }
         instance = this;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         animController.SetFloat("Speed", Mathf.Abs(horizontalValue));
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump && countJump > 0)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") && canJump && countJump > 0)
         {
 
             Jump();

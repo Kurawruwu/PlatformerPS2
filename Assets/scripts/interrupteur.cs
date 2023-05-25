@@ -17,7 +17,7 @@ public class interrupteur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Action") && inZone)
+        if((Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1")) && inZone)
         {
             isOn = !isOn;
             Debug.Log(isOn);
@@ -28,6 +28,8 @@ public class interrupteur : MonoBehaviour
                 platform.SetActive(false);
             }
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

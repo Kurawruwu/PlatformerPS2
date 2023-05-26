@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalValue;
     float movementSpeed = 400f;
 
-    bool canJump;
+    [SerializeField] bool canJump;
     int countJump;
    float jumpForce = 10f;
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         animController.SetFloat("Speed", Mathf.Abs(horizontalValue));
 
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") && canJump && countJump > 0)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")) && canJump && countJump > 0)
         {
 
             Jump();

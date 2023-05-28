@@ -19,7 +19,7 @@ public class enemyBulletScript : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
         float rota = Mathf.Atan2(-direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rota + 90);
+       
     }
 
     // Update is called once per frame

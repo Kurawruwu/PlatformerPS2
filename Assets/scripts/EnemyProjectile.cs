@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     public GameObject bullet;
     public Transform bulletPos;
+    Animator animController;
 
     private float timer;
     private GameObject player;
@@ -13,6 +14,7 @@ public class EnemyProjectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        animController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,8 +30,10 @@ public class EnemyProjectile : MonoBehaviour
             if (timer > 2)
             {
                 timer = 0;
+                animController.SetBool("Shoot", true);
                 shoot();
             }
+            else animController.SetBool("Shoot", false);
         }
 
         

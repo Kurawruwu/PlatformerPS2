@@ -23,7 +23,7 @@ public class DegatsRonces : MonoBehaviour
             timerDamage += Time.deltaTime;
             if (timerDamage >= timeBetweenDamage)
             {
-                playerHealth.TakeDamage(10);
+                playerHealth.TakeDamage(25);
                 timerDamage = 0;
             }
         }

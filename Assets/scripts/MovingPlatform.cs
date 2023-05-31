@@ -36,7 +36,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // collision.transform.SetParent(this.transform);
+            
             onPlatform = true;
         }
     }
@@ -45,7 +45,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // collision.transform.SetParent(null);
+            
             onPlatform = false;
         }
     }

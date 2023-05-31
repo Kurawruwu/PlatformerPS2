@@ -7,11 +7,12 @@ public class interrupteur : MonoBehaviour
     [SerializeField] bool isOn = false;
     bool inZone = false;
     [SerializeField] GameObject platform;
+    Animator animController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,14 +20,11 @@ public class interrupteur : MonoBehaviour
     {
         if((Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1")) && inZone)
         {
-            isOn = !isOn;
+            isOn = true;
             Debug.Log(isOn);
-            platform.SetActive(true);
-
-            if(isOn == false)
-            {
-                platform.SetActive(false);
-            }
+            animController.SetBool("IsOn", true);
+            StartCoroutine(Timer());
+            
         }
 
 
@@ -47,5 +45,10 @@ public class interrupteur : MonoBehaviour
             //Debug.Log("dehors la zone");
             inZone = false;
         }
+    }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        platform.SetActive(true);
     }
 }

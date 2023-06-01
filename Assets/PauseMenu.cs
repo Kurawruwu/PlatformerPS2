@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PauseMenu : MonoBehaviour
 {
     public string levelToLoad;
@@ -13,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Fire2"))
         {
             if (gameIsPaused)
             {
@@ -39,6 +40,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
-    
+    public void LoadMainMenu()
+    {
+        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
+        Resume();
+        SceneManager.LoadScene("Menu Principal");
+    }
 
 }

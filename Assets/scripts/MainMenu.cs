@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;
     public GameObject settingsWindow;
+
+    void Start()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene(levelToLoad);

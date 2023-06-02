@@ -253,10 +253,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n-Art-\nvalentin herreman\n\n-Animation-\nvalentin herreman\n\n-programming-\nvalentin
-    herreman\nwith some help\n\n-Font-\ncrispy tofu\nby khurasan\n\n-Special thanks-\nethan
-    for\n programming help\n\nLauriane for the\nzito art\n\ntuto unity fr\nand\nBrackeys\nfor
-    the tutorials\n\n\nthanks for playing!\n"
+  m_text: "\n\n\n\n\n-Art-\nvalentin herreman\n\n-Animation-\nvalentin herreman\n\n-Game
+    development-\nvalentin herreman\nwith some help\n\n-Font-\ncrispy tofu\nby khurasan\n\n-Special
+    thanks-\nethan for\n programming help\n\nLauriane for the\nzito art\n\ntuto unity
+    fr\nand\nBrackeys\nfor the tutorials\n\n\nthanks for playing!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6da3484f690a6ca4f9be65a1b1671381, type: 2}
   m_sharedMaterial: {fileID: -8006337257696261497, guid: 6da3484f690a6ca4f9be65a1b1671381, type: 2}

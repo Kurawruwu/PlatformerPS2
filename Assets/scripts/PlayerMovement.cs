@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] bool facingRight;
+     [SerializeField] bool facingRight;
     public Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animController;
@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             Jump();
+           
         }
     }
 
